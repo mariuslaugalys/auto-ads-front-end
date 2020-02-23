@@ -1,0 +1,96 @@
+<mat-card-title style="text-align: center;margin-top: 8px">
+  <span>{{advert.manufacturer}} </span>
+  <span>{{advert.model}} </span>
+  <span>{{advert.manufactureYear}}</span>
+</mat-card-title>
+
+<mat-carousel
+  proportion="70"
+  slides="5"
+  [loop]="true"
+  [hideArrows]="false"
+  [hideIndicators]="false"
+  orientation="ltr"
+  color="theme"
+>
+  <mat-carousel-slide
+    *ngFor="let slide of advert.images; let i = index"
+    [image]="slide"
+    overlayColor="#00000040"
+    [hideOverlay]="false"
+  ></mat-carousel-slide>
+</mat-carousel>
+
+<div class="flex-row" style="padding: 8px;">
+  <div class="flex-column" style="min-width: 150px;margin-right: 8px">
+    <div class="data-field" style="font-size: 1.5em">
+      <span>Price &euro;</span>
+      <span>{{advert.price}}</span>
+    </div>
+      <button mat-raised-button color="primary" [mat-dialog-close]="">Close Dialog</button>
+  </div>
+
+  <div class="flex-row data-container" style="justify-content: flex-start">
+
+    <div class="flex-column data-column">
+      <div class="data-field">
+        <span>Volume l:</span>
+        <span>{{advert.volume}}</span>
+      </div>
+
+      <div class="data-field">
+        <span>Fuel:</span>
+        <span>{{advert.fuelType}} </span>
+      </div>
+
+      <div class="data-field">
+        <span>Power kW:</span>
+        <span>{{advert.power}}</span>
+      </div>
+
+      <div class="data-field">
+        <span>Transmission:</span>
+        <span>{{advert.transmissionType}}</span>
+      </div>
+    </div>
+
+    <div class="flex-column data-column">
+      <div class="data-field">
+        <span>Kilometers:</span>
+        <span>{{advert.kilometers}}</span>
+      </div>
+
+      <div class="data-field">
+        <span>Chassis:</span>
+        <span>{{advert.chassisType}}</span>
+      </div>
+
+      <div class="data-field">
+        <span>Color:</span>
+        <span>{{advert.color}}</span>
+      </div>
+
+      <div class="data-field">
+        <span>Drive type:</span>
+        <span>{{advert.driveType}}</span>
+      </div>
+    </div>
+
+    <div class="flex-column data-column">
+      <div class="data-field">
+        <span>Name:</span>
+        <span>{{advert.seller.name}}</span>
+      </div>
+
+      <div class="data-field">
+        <span>Email:</span>
+        <span>{{advert.seller.email}}</span>
+      </div>
+
+      <div class="data-field">
+        <span>Phone:</span>
+        <span>{{advert.seller.phone}}</span>
+      </div>
+    </div>
+  </div>
+</div>

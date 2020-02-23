@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+
+  <button mat-button routerLink="/adverts">
+    Browse Adverts
+  </button >
+
+  <button *ngIf="token" mat-button (click)="logOut()">
+    Logout
+  </button>
+
+  <button *ngIf="!token" mat-button routerLink="/user/login">
+    Login
+  </button>
+
+  <button *ngIf="token" mat-button routerLink="/user/">
+    Profile
+  </button>
+
+</mat-toolbar>
+
+<router-outlet></router-outlet>

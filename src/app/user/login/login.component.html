@@ -1,0 +1,28 @@
+<div style="display:flex; justify-content: center">
+  <mat-card class="mat-elevation-z5">
+    <h1>Login</h1>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <mat-form-field appearance="standard">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="standard">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" autocomplete="off" formControlName="password"/>
+      </mat-form-field>
+
+      <button mat-stroked-button color="primary" type="submit">
+        <span style="display: flex;align-items: center;justify-content: center">
+          <span style="margin-right: 5px">SUBMIT</span>
+          <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+        </span>
+      </button>
+    </form>
+
+    <p class="mat-error" *ngIf="error">{{error}}<p>
+    <button mat-stroked-button color="primary" style="width: 100%" (click)="showRegisterDialog()">
+      REGISTER
+    </button>
+  </mat-card>
+</div>

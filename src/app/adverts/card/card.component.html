@@ -1,0 +1,17 @@
+<mat-card class="mat-elevation-z5" style="padding: 0;width: 280px;overflow: hidden">
+
+  <img [src]="imagesrc" alt=""/>
+
+  <mat-card-title class="data-container">
+    <span>{{advert.manufacturer}} </span>
+    <span>{{advert.model}} </span>
+  </mat-card-title>
+
+  <mat-card-subtitle class="data-container" style="margin-bottom: 8px;">
+    <span>{{advert.manufactureYear}}</span>
+    <span>{{advert.fuelType}}</span>
+    <span>{{advert.transmissionType}}</span>
+  </mat-card-subtitle>
+
+  <mat-card-title style="margin-bottom: 8px;">{{advert.price}} &#8364;</mat-card-title>
+</mat-card>

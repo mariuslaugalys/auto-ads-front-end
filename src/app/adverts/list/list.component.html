@@ -1,0 +1,11 @@
+<h1 *ngIf="!ownerView">Adverts list</h1>
+<ul>
+  <li *ngFor="let advert of adverts" style="position: relative">
+    <app-advert-card [advert]="advert" (click)="showAdvertDialog(advert)"></app-advert-card>
+    <div *ngIf="ownerView" class="actions">
+      <button mat-icon-button (click)="showEditAdvertDialog(advert)"><mat-icon>edit</mat-icon></button>
+      <button mat-icon-button (click)="showConfirmDeleteDialog(advert)"><mat-icon>clear</mat-icon></button>
+    </div>
+  </li>
+</ul>
+<app-advert-filter *ngIf="!ownerView" [filters]="filters" (filtersChanged)="setFilter($event)"></app-advert-filter>

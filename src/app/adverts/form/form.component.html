@@ -1,0 +1,236 @@
+<form class="flex-column" [formGroup]="advertForm" (ngSubmit)="submit()" style="min-width: 500px">
+  <div class="flex-row">
+    <mat-form-field appearance="standard">
+      <mat-label>Manufacturer</mat-label>
+
+      <input matInput formControlName="manufacturer"/>
+
+      <mat-error *ngIf="advertForm.controls.manufacturer.invalid">{{
+        getError("manufacturer")
+        }}</mat-error>
+
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Model</mat-label>
+
+      <input matInput placeholder="Model" formControlName="model"/>
+
+      <mat-error *ngIf="advertForm.controls.model.invalid">{{
+        getError("model")
+        }}</mat-error>
+
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div class="flex-row">
+    <mat-form-field appearance="standard">
+      <mat-label>Manufacture year</mat-label>
+
+      <input
+        matInput
+        type="number"
+        placeholder="Manufacture year"
+        formControlName="manufactureYear"
+      />
+
+      <mat-error *ngIf="advertForm.controls.manufactureYear.invalid">{{
+        getError("manufactureYear")
+        }}</mat-error>
+
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Chassis type</mat-label>
+
+      <mat-select value="Sedan" formControlName="chassisType">
+        <mat-option value="Coupe">Coupe</mat-option>
+        <mat-option value="Hatchback">Hatchback</mat-option>
+        <mat-option value="Sedan">Sedan</mat-option>
+        <mat-option value="Estate">Estate</mat-option>
+        <mat-option value="SUV">SUV</mat-option>
+        <mat-option value="Van">Van</mat-option>
+        <mat-option value="Convertible">Convertible</mat-option>
+      </mat-select>
+
+      <mat-error *ngIf="advertForm.controls.chassisType.invalid">{{
+        getError("chassisType")
+        }}</mat-error>
+
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div class="flex-row">
+    <mat-form-field appearance="standard">
+      <mat-label>Volume</mat-label>
+
+      <input
+        matInput
+        type="number"
+        placeholder="Volume"
+        formControlName="volume"
+      />
+
+      <mat-error *ngIf="advertForm.controls.volume.invalid">{{
+        getError("volume")
+        }}</mat-error>
+
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Fuel type</mat-label>
+
+      <mat-select value="Diesel" formControlName="fuelType">
+        <mat-option value="Diesel">Diesel</mat-option>
+        <mat-option value="Petrol">Petrol</mat-option>
+        <mat-option value="Hybrid">Hybrid</mat-option>
+      </mat-select>
+
+      <mat-error *ngIf="advertForm.controls.fuelType.invalid">{{
+        getError("fuelType")
+        }}</mat-error>
+
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div class="flex-row">
+    <mat-form-field appearance="standard">
+      <mat-label>Power</mat-label>
+
+      <input
+        matInput
+        type="number"
+        placeholder="Power"
+        formControlName="power"
+      />
+
+      <mat-error *ngIf="advertForm.controls.power.invalid">{{
+        getError("power")
+        }}</mat-error>
+
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Transmission Type</mat-label>
+
+      <mat-select value="Automatic" formControlName="transmissionType">
+        <mat-option value="Automatic">Automatic</mat-option>
+        <mat-option value="Manual">Manual</mat-option>
+      </mat-select>
+
+      <mat-error *ngIf="advertForm.controls.chassisType.invalid">{{
+        getError("transmissionType")
+        }}</mat-error>
+
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div class="flex-row">
+    <mat-form-field appearance="standard">
+      <mat-label>Kilometers</mat-label>
+
+      <input
+        matInput
+        type="number"
+        placeholder="Kilometers"
+        formControlName="kilometers"
+      />
+
+      <mat-error *ngIf="advertForm.controls.kilometers.invalid">{{
+        getError("kilometers")
+        }}</mat-error>
+
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Drive type</mat-label>
+
+      <mat-select value="Front" formControlName="driveType">
+        <mat-option value="Front">Front</mat-option>
+        <mat-option value="Rear">Rear</mat-option>
+        <mat-option value="All">All</mat-option>
+      </mat-select>
+
+      <mat-error *ngIf="advertForm.controls.driveType.invalid">{{
+        getError("driveType")
+        }}</mat-error>
+
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div class="flex-row">
+    <mat-form-field appearance="standard">
+      <mat-label>Price</mat-label>
+
+      <input
+        matInput
+        type="number"
+        placeholder="Price"
+        formControlName="price"
+      />
+
+      <mat-error *ngIf="advertForm.controls.price.invalid">{{
+        getError("price")
+        }}</mat-error>
+
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Color</mat-label>
+
+      <input matInput placeholder="Color" formControlName="color"/>
+
+      <mat-error *ngIf="advertForm.controls.color.invalid">{{
+        getError("color")
+        }}</mat-error>
+
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div class="images-container">
+    <div *ngFor="let image of images">
+      <img
+        [src]="image.url"
+        style="object-fit: cover;width: 100%;height: 100%"
+      >
+      <button mat-icon-button style="top:0;right:0" type="button" (click)="clearImage(image)">
+        <mat-icon>clear</mat-icon>
+      </button>
+      <button mat-icon-button style="bottom:0;left:0" type="button" (click)="moveImage(image,true)">
+        <mat-icon>navigate_before</mat-icon>
+      </button>
+      <button mat-icon-button style="bottom:0;right:0" type="button" (click)="moveImage(image,false)">
+        <mat-icon>navigate_next</mat-icon>
+      </button>
+    </div>
+
+    <div
+      class="image-input"
+      (drop)="onDrop($event)"
+      (dragover)="onDragOver($event)"
+    >
+      <span>Drop</span><span>images</span><span>here</span>
+    </div>
+  </div>
+
+  <button mat-stroked-button color="primary" type="submit" [disabled]="loading">
+        <span style="display: flex;align-items: center;justify-content: center">
+          <span style="margin-right: 5px">SUBMIT</span>
+          <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+        </span>
+  </button>
+</form>
+
+<p class="mat-error" *ngIf="error && !loading">{{ error }}</p>

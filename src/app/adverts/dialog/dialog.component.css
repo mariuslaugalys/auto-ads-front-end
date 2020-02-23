@@ -1,0 +1,38 @@
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.data-column {
+  flex-grow: 1;
+  max-width: 250px;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.data-container {
+  flex-wrap: wrap;
+  min-height:80px;
+}
+
+.data-container > * {
+  margin-right: 8px;
+}
+
+.data-container > *:last-child {
+  margin-right: 0;
+}
+
+.data-field {
+  display: flex;
+  justify-content: space-between
+}
+
+.data-field > span:first-child {
+  font-weight: bold;
+  margin-right: 10px;
+}

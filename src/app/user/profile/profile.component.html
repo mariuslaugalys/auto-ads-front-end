@@ -1,0 +1,40 @@
+<div *ngIf="user" class="profile-panel">
+  <h2>Profile Info</h2>
+  <button mat-icon-button (click)="showEditProfileDialog()">
+    <mat-icon>edit</mat-icon>
+  </button>
+  <div>
+    <p><b>Username</b></p>
+    <p>{{user.name}}</p>
+  </div>
+  <div>
+    <p><b>First Name</b></p>
+    <p>{{user.firstName}}</p>
+  </div>
+  <div>
+    <p><b>Last Name</b></p>
+    <p>{{user.lastName}}</p>
+  </div>
+  <div>
+    <p><b>Phone</b></p>
+    <p>{{user.phone}}</p>
+  </div>
+  <div>
+    <p><b>Email</b></p>
+    <p>{{user.email}}</p>
+  </div>
+</div>
+
+<h1>My Adverts</h1>
+<app-list
+  *ngIf="user"
+  [adverts]="user.adverts"
+  [ownerView]="true"
+  (updateList)="updateProfileData($event)"
+>
+</app-list>
+
+<button mat-fab (click)="showCreateDialog()" color="primary"
+        style="position: fixed; right:20px; bottom: 20px">
+  <mat-icon>add</mat-icon>
+</button>

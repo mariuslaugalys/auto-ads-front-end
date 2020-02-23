@@ -1,0 +1,35 @@
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+li > * {
+  text-align: center;
+}
+
+li > .actions{
+  position: absolute;
+  right:0;
+  top:5px;
+  display: flex;
+  flex-direction: column;
+}
+li > .actions > *{
+  margin:0 5px 5px 5px;
+}
+
+li:hover {
+  box-shadow:0 6px 6px -3px rgba(0,0,0,.2),0 10px 14px 1px rgba(0,0,0,.14),0 4px 18px 3px rgba(0,0,0,.12)
+}
+
+li {
+  margin: 10px;
+}
+
+h1 {
+  text-align: center;
+}

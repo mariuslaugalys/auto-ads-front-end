@@ -1,0 +1,53 @@
+<form class="flex-column" [formGroup]="userForm" (ngSubmit)="submit()" style="margin: 50px">
+  <mat-form-field appearance="standard">
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="name">
+    <mat-error *ngIf="userForm.controls.name.invalid">{{getError('name')}}</mat-error>
+    <mat-hint>Required</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard">
+    <input matInput formControlName="email">
+    <mat-label>Email</mat-label>
+    <mat-error *ngIf="userForm.controls.email.invalid">{{getError('email')}}</mat-error>
+    <mat-hint>Required</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="standard">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" formControlName="password">
+    <mat-error *ngIf="userForm.controls.password.invalid">{{getError('password')}}</mat-error>
+    <mat-hint>Required</mat-hint>
+  </mat-form-field>
+
+  <div class="flex-row">
+    <mat-form-field appearance="standard">
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="firstName">
+      <mat-error *ngIf="userForm.controls.firstName.invalid">{{getError('firstName')}}</mat-error>
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="lastName">
+      <mat-error *ngIf="userForm.controls.lastName.invalid">{{getError('lastName')}}</mat-error>
+      <mat-hint>Required</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field appearance="standard">
+    <mat-label>Phone</mat-label>
+    <input matInput formControlName="phone">
+    <mat-error *ngIf="userForm.controls.phone.invalid">{{getError('phone')}}</mat-error>
+    <mat-hint>Required</mat-hint>
+  </mat-form-field>
+
+  <button mat-stroked-button color="primary" type="submit">
+    <span style="display: flex;align-items: center;justify-content: center">
+      <span style="margin-right: 5px">SUBMIT</span>
+      <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+    </span>
+  </button>
+</form>
+<p class="mat-error" *ngIf="error">{{error}}</p>

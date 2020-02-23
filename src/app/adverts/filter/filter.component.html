@@ -1,0 +1,61 @@
+<div class="filter-container">
+  <button mat-icon-button class="activate-button mat-elevation-z3" (click)="activatePanel()">
+    <mat-icon>filter_list</mat-icon>
+  </button>
+
+  <div class="filter-panel" *ngIf="panelActive">
+    <div class="filter-list">
+      <mat-card class="mat-elevation-z3" *ngFor="let filterEntry of filterEntries">
+        <p>
+          <span *ngIf="!filterEntry.secondary">{{filterEntry.key}}</span>
+          <span *ngIf="filterEntry.secondary">{{filterEntry.secondary}}</span>
+          :
+          <span>{{filterEntry.value}}</span>
+        </p>
+        <button mat-icon-button class="remove-button mat-elevation-z3"
+                (click)="remove(filterEntry.key,filterEntry.secondary)">
+          <mat-icon class="icon-small">clear</mat-icon>
+        </button>
+      </mat-card>
+    </div>
+
+    <form [formGroup]="filterForm" (ngSubmit)="add()">
+      <mat-form-field appearance="standard" style="flex: 2;">
+        <mat-label>Filter type</mat-label>
+        <mat-select value="" formControlName="activeFilterKey">
+          <mat-option value="minPrice">minPrice</mat-option>
+          <mat-option value="maxPrice">maxPrice</mat-option>
+          <mat-option value="manufacturersModels">manufacturersModels</mat-option>
+          <mat-option value="colors">colors</mat-option>
+          <mat-option value="driveTypes">driveTypes</mat-option>
+          <mat-option value="chassisTypes">chassisTypes</mat-option>
+          <mat-option value="transmissionTypes">transmissionTypes</mat-option>
+          <mat-option value="fuelTypes">fuelTypes</mat-option>
+          <mat-option value="minManufactureYear">minManufactureYear</mat-option>
+          <mat-option value="maxManufactureYear">maxManufactureYear</mat-option>
+          <mat-option value="minPower">minPower</mat-option>
+          <mat-option value="maxPower">maxPower</mat-option>
+          <mat-option value="minKilometers">minKilometers</mat-option>
+          <mat-option value="maxKilometers">maxKilometers</mat-option>
+          <mat-option value="minVolume">minVolume</mat-option>
+          <mat-option value="maxVolume">maxVolume</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="standard" style="flex: 5">
+        <mat-label>Value</mat-label>
+        <input matInput value="" formControlName="activeFilterValue"/>
+        <mat-error *ngIf="filterForm.get('activeFilterValue').errors">{{getError()}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="showSecondary" appearance="standard" style="flex: 5">
+        <mat-label>Value</mat-label>
+        <input matInput value="" formControlName="activeFilterSecondary"/>
+      </mat-form-field>
+
+      <button mat-icon-button class="mat-elevation-z3" type="submit">
+        <mat-icon>add</mat-icon>
+      </button>
+    </form>
+  </div>
+</div>

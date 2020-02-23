@@ -1,0 +1,68 @@
+.filter-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.activate-button{
+  position: absolute;
+  top:-70px;
+  right:50px;
+  z-index: 100;
+}
+.filter-panel{
+  background-color: white;
+  box-shadow: 0 6px 6px -3px rgba(0,0,0,.2), 0 10px 14px 1px rgba(0,0,0,.14), 0 4px 18px 3px rgba(0,0,0,.12);
+}
+
+.filter-list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.filter-list>*{
+  margin: 15px 5px 0 0;
+  display: flex;
+  align-items: center;
+}
+.filter-list>*>*{
+  margin: 0;
+}
+
+.remove-button{
+  position: absolute;
+  right:5px;
+  top:-10px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-small{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: rgba(0,0,0,0.5);
+}
+
+form {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+form>*{
+  margin-right: 15px;
+  bottom: 5px;
+}
+form>*:first-child{
+  margin-left: 15px;
+}
+form>*:last-child{
+  bottom: 0;
+}
